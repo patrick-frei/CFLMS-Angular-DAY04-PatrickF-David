@@ -10,7 +10,7 @@ import { BlogpostService } from '../blogpost.service';
 export class AddComponent implements OnInit {
   submitted = false;
   valid = false;
-  tempImage;
+  imageString;
   post = new FormGroup({
     title: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
@@ -25,19 +25,20 @@ export class AddComponent implements OnInit {
 
   convertImage(event) {
     let reader = new FileReader();
+    let file = event.target.files[0];
     reader.onload = () => {
-      this.tempImage = reader.result;
+      this.imageString = reader.result;
     }
-    reader.readAsDataURL(event.target.files[0]);
+    reader.readAsDataURL(file);
   }
 
 
   onSubmit() {
-    this.valid = this.post.valid;
     this.submitted = true;
+    this.valid = this.post.valid;
     if (this.valid) {
       this.post.value.timestamp = new Date();
-      this.post.value.image = this.tempImage;
+      this.post.value.image = this.imageString;
       this.blogpostService.addPost(this.post.value);
       console.log(this.post.value);
       this.post.reset();
