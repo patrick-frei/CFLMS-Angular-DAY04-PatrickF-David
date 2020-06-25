@@ -1,0 +1,19 @@
+<div class="row row-cols-3">
+  <div class="col" *ngFor="let post of posts">
+    <div class="card mx-2 my-4">
+      <img src="{{ post.image }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}
+          <span class="badge badge-success" *ngIf="isNew(post)">New</span>
+        </h5>
+        <p class="card-text">{{ post.text }}</p>
+        <button type="button" class="btn btn-danger btn-sm" (click)="removePost(post)">Remove</button>
+      </div>
+      <div class="card-footer text-muted">
+        Last edited by {{ post.name }}
+        <br>
+        Created on {{ post.timestamp.toDateString() }}
+      </div>
+    </div>
+  </div>
+</div>

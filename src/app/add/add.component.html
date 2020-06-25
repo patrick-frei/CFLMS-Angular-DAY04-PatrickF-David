@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class="my-2">Add a new Blogpost</h2>
+    <form [formGroup]="post" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" class="form-control" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label>Image:</label>
+        <input type="file" accept="image/jpeg" class="form-control-file" formControlName="image" (change)="convertImage($event)">
+      </div>
+      <div class="form-group">
+        <label>Text:</label>
+        <textarea type="text" class="form-control" formControlName="text"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </div>
+      <input type="hidden" class="form-control" formControlName="timestamp">
+    </form>
+  </div>
+</div>
+<container-element [ngSwitch]="true">
+  <div class="alert alert-success mt-4" *ngSwitchCase="submitted && valid">Blogpost has been successfully submitted!</div>
+  <div class="alert alert-danger mt-4" *ngSwitchCase="submitted && !valid">Your inputs are not valid!</div>
+</container-element>

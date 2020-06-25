@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+  min-height: 100%;
+}
+
+body {
+  padding: 6em 0;
+  background: rgb(219, 234, 255);
+  background: linear-gradient(0deg, rgba(219, 234, 255, 1) 0%, rgba(96, 125, 153, 1) 100%);
+  min-height: 100%;
+}
