@@ -4,7 +4,7 @@
       <img src="assets/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
       CatBlog
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav,#navbarNav2"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,13 +14,19 @@
           <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about">About</a>
+          <a class="nav-link disabled" routerLink="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contact">Contact Us</a>
+          <a class="nav-link disabled" routerLink="/contact">Contact Us</a>
         </li>
       </ul>
     </div>
-    <a class="btn btn-sm btn-primary" routerLink="/add">Add Blogpost</a>
+    <div class="collapse navbar-collapse" id="navbarNav2">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="btn btn-primary" routerLink="/add">Add Blogpost</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
