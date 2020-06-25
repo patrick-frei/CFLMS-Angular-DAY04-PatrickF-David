@@ -26,9 +26,9 @@ export class AddComponent implements OnInit {
   convertImage(event) {
     let reader = new FileReader();
     reader.onload = () => {
-      this.tempImage = `data:image/jpg;base64,${btoa(String(reader.result))}`;
+      this.tempImage = reader.result;
     }
-    reader.readAsBinaryString(event.target.files[0]);
+    reader.readAsDataURL(event.target.files[0]);
   }
 
 
